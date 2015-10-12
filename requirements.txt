@@ -1,0 +1,13 @@
+Django>=1.8
+Fabric>=1.10
+celery>=3.1.18
+ecdsa>=0.13
+paramiko>=1.15.2
+psycopg2==2.6
+pycrypto>=2.6.1
+-e git+https://github.com/codezilla-it/django-zilla.git#egg=django-zilla
+redis
+django-redis-cache
+hiredis
+requests
+ipython
