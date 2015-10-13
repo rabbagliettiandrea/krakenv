@@ -1,4 +1,5 @@
 .*
+!.gitkeep
 !/.gitignore
 *.py[cod]
 *.eml
@@ -18,11 +19,3 @@ vendor
 /static
 Thumbs.db
 .DS_STORE
-
-# Krakenv
-wraith/settings/*
-wraith/tentacles/*
-wraith/apps/*
-!wraith/settings/__init__.py
-!wraith/tentacles/__init__.py
-!wraith/apps/__init__.py
