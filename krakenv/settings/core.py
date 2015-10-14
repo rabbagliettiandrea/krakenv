@@ -35,7 +35,7 @@ ROOT_URLCONF = 'krakenv.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'krakenv/../../wraith', 'templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'krakenv', 'templates')],
         'OPTIONS': {
             'loaders': [
                 'django.template.loaders.app_directories.Loader',
@@ -65,9 +65,11 @@ STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'django.contrib.staticfiles.finders.FileSystemFinder',
 ]
-STATICFILES_DIRS = []
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'krakenv', 'static')
+]
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'krakenv/../../wraith', 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
