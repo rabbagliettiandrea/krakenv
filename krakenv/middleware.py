@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 
 from __future__ import unicode_literals, division, absolute_import
-from krakenv import get_tentacle
+from krakenv.tentacle import Tentacle
 import krakenv.thread
 
 
 class TentacleDispatcherMiddleware(object):
 
     def process_request(self, request):
-        tentacle = get_tentacle(request)
+        tentacle = Tentacle.get_tentacle(request)
         if tentacle:
             krakenv.thread.local.tentacle = tentacle
             request.urlconf = tentacle.path + '.urls'

@@ -6,7 +6,7 @@ from fabric.contrib import django as fab_django
 from fabric.decorators import task
 from fabric.operations import local, os
 
-fab_django.settings_module('wraith.settings')
+fab_django.settings_module('krakenv.settings')
 from django.conf import settings
 
 env.key_filename = getattr(settings, 'RSA_FILEPATH')
