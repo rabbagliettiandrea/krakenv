@@ -18,7 +18,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'krakenv',
-    'krakenv.apps.account_manager',
+    'krakenv.apps.account_system',
 ]
 MIDDLEWARE_CLASSES = [
     'krakenv.middleware.TentacleDispatcherMiddleware',

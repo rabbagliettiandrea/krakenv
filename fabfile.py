@@ -19,4 +19,6 @@ def shell():
     print local("python %s shell" % os.path.join(settings.BASE_DIR, 'manage.py'))
 
 
-from django_zilla.fabric_tasks import select, queue, db, migrations, misc, srv, git
+from django_zilla.fabric_tasks import select, queue, misc, srv, git
+if settings.DATABASES:
+    from django_zilla.fabric_tasks import db, migrations

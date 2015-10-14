@@ -15,6 +15,7 @@ globals().update(vars(local_settings))
 TENTACLES = wraith_settings.TENTACLES
 INSTALLED_APPS += wraith_settings.APPS + [tentacle.path for tentacle in TENTACLES.itervalues()]
 
+
 for tentacle in TENTACLES.itervalues():
     try:
         globals().update(vars(import_module('%s.settings' % tentacle.path)))
