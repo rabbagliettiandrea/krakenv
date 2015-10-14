@@ -2,10 +2,11 @@
 
 from __future__ import unicode_literals, division, absolute_import
 from importlib import import_module
-from .core import *
-from wraith import settings as wraith_settings
+
 import os
 
+from .core import *
+from wraith import settings as wraith_settings
 
 STAGE = os.environ.get('ZILLA_STAGE')
 local_settings = import_module('wraith.settings.%s' % STAGE)
