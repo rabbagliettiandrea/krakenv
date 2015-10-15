@@ -17,6 +17,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sitemaps',
     'krakenv',
     'krakenv.apps.account_system',
 ]
@@ -54,7 +55,16 @@ TEMPLATES = [
     },
 ]
 WSGI_APPLICATION = 'wsgi.application'
-DATABASES = {}
+DATABASES = {
+    'default':     {
+        'ENGINE':   'django.db.backends.postgresql_psycopg2',
+        'NAME':     'krakenv',
+        'USER':     'djangouser',
+        'PASSWORD': 'djangouser',
+        'HOST':     '127.0.0.1',
+        'PORT':     '5432'
+    }
+}
 DATABASE_ROUTERS = ['krakenv.db.routers.KrakenvRouter']
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
