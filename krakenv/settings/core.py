@@ -56,7 +56,7 @@ TEMPLATES = [
 ]
 WSGI_APPLICATION = 'wsgi.application'
 DATABASES = {
-    'default':     {
+    'default': {
         'ENGINE':   'django.db.backends.postgresql_psycopg2',
         'NAME':     'krakenv',
         'USER':     'djangouser',
@@ -66,6 +66,7 @@ DATABASES = {
     }
 }
 DATABASE_ROUTERS = ['krakenv.db.routers.KrakenvRouter']
+ATOMIC_REQUESTS = True
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 USE_I18N = True

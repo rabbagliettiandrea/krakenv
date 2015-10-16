@@ -11,3 +11,4 @@ django-redis-cache
 hiredis
 requests
 ipython
+sphinx

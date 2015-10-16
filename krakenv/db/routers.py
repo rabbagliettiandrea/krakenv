@@ -7,9 +7,10 @@ import krakenv.thread
 class KrakenvRouter(object):
 
     def _route(self, model, **hints):
-        tentacle = getattr(krakenv.thread.local, 'tentacle', None)
-        if tentacle:
-            return tentacle.database
+        try:
+            return krakenv.thread.local.tentacle.database
+        except AttributeError:
+            raise RuntimeError('No DB selected')
 
     def db_for_read(self, model, **hints):
         return self._route(model, **hints)
