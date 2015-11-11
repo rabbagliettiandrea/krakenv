@@ -49,21 +49,14 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'krakenv.context_processors.get__settings',
                 'krakenv.context_processors.get__datetime_now',
-                'krakenv.context_processors.get__user_is_logged'
+                'krakenv.context_processors.get__client_is_logged'
             ],
         },
     },
 ]
 WSGI_APPLICATION = 'wsgi.application'
 DATABASES = {
-    'default': {
-        'ENGINE':   'django.db.backends.postgresql_psycopg2',
-        'NAME':     'krakenv',
-        'USER':     'djangouser',
-        'PASSWORD': 'djangouser',
-        'HOST':     '127.0.0.1',
-        'PORT':     '5432'
-    }
+    'default': {}
 }
 DATABASE_ROUTERS = ['krakenv.db.routers.KrakenvRouter']
 ATOMIC_REQUESTS = True
@@ -131,8 +124,6 @@ REDIS_SERVERS = {
     'misc': 'redis://127.0.0.1:6379/1',
     'session': 'redis://127.0.0.1:6379/2',
     'staticfiles': 'redis://127.0.0.1:6379/3',
-    'magento_pourich': 'redis://127.0.0.1:6379/4',
-    'magento_spesafacile': 'redis://127.0.0.1:6379/5',
     # Direct
     'celery-task': 'redis://127.0.0.1:6379/6',
     'celery-result': 'redis://127.0.0.1:6379/7'
@@ -157,24 +148,6 @@ CACHES = {
         'BACKEND': 'redis_cache.cache.RedisCache',
         'TIMEOUT': CACHE_EXPIRE_TIME,
         'LOCATION': SimpleLazyObject(lambda: REDIS_SERVERS['staticfiles']),
-    },
-    'magento_pourich': {
-        'BACKEND': 'redis_cache.cache.RedisCache',
-        'TIMEOUT': CACHE_EXPIRE_TIME,
-        'LOCATION': SimpleLazyObject(lambda: REDIS_SERVERS['magento_pourich']),
-        'OPTIONS': {
-            'SERIALIZER_CLASS': 'redis_cache.serializers.JSONSerializer'
-        },
-        'KEY_FUNCTION': lambda key, key_prefix, version: key
-    },
-    'magento_spesafacile': {
-        'BACKEND': 'redis_cache.cache.RedisCache',
-        'TIMEOUT': CACHE_EXPIRE_TIME,
-        'LOCATION': SimpleLazyObject(lambda: REDIS_SERVERS['magento_spesafacile']),
-        'OPTIONS': {
-            'SERIALIZER_CLASS': 'redis_cache.serializers.JSONSerializer'
-        },
-        'KEY_FUNCTION': lambda key, key_prefix, version: key
     }
 }
 # Authentication

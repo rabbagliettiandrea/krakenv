@@ -12,11 +12,4 @@ from django.conf import settings
 env.key_filename = getattr(settings, 'RSA_FILEPATH')
 env.celery_app = 'celery_app'
 
-
-@task
-def shell():
-    """ Open a django shell through IPython """
-    print local("python %s shell" % os.path.join(settings.BASE_DIR, 'manage.py'))
-
-
-from django_zilla.fabric_tasks import select, queue, misc, srv, git, db, migrations
+from django_zilla.fabric_tasks import queue, misc, git, db, migrations
